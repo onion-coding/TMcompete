@@ -1,14 +1,12 @@
-from db import get_connection
+from falcon import HTTP_200
+from db.session import Session
 
-def test_query():
-    conn = get_connection()
-    cur = conn.cursor()
-    cur.execute("SELECT 1;")
-    print(cur.fetchone())
-    cur.close()
-    conn.close()
-
-
+class EventsResource:
+    def on_get(self, req, resp):
+        session = Session()
+        # do queries with session
+        resp.media = {"status": "ok"}
+        session.close()
 
 # endpoints
 # /browse           -> browse all competitions, will be the landing page
