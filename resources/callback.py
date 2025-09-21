@@ -1,4 +1,4 @@
-import os
+import os, requests
 
 class CallbackResource:
     def on_get(self, req, resp):

@@ -4,7 +4,6 @@ import secrets
 class IndexResource:
     def on_get(self, req, resp):
         state = secrets.token_urlsafe(16)
-        req.context.session["oauth_state"] = state
         base_url = "https://api.trackmania.com/oauth/authorize"
         client_id = os.getenv("CLIENT_ID")
         redirect_uri = os.getenv("REDIRECT_URI")
