@@ -8,6 +8,6 @@ class IndexResource:
         base_url = "https://api.trackmania.com/oauth/authorize"
         client_id = os.getenv("CLIENT_ID")
         redirect_uri = os.getenv("REDIRECT_URI")
-        auth_url = "{base_url}?response_type=code&client_id={client_id}&redirect_uri={redirect_uri}&state={state}"
+        auth_url = f"{base_url}?response_type=code&client_id={client_id}&redirect_uri={redirect_uri}&state={state}"
         resp.content_type = "text/html"
         resp.text = f'<a href="{auth_url}">Login with Ubisoft</a>'
