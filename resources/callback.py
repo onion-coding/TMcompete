@@ -14,10 +14,10 @@ class CallbackResource:
         token_url = "https://api.trackmania.com/api/access_token"
         data = {
             "grant_type": "authorization_code",
-            "client_id": os.getenv(CLIENT_ID),
-            "client_secret": os.getenv(CLIENT_SECRET),
+            "client_id": os.getenv("CLIENT_ID"),
+            "client_secret": os.getenv("CLIENT_SECRET"),
             "code": code,
-            "redirect_uri": os.getenv(REDIRECT_URI_),
+            "redirect_uri": os.getenv("REDIRECT_URI_"),
         }
         headers = {"Content-Type": "application/x-www-form-urlencoded"}
         r = requests.post(token_url, data=data, headers=headers)
