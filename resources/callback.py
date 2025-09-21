@@ -17,7 +17,7 @@ class CallbackResource:
             "client_id": os.getenv("CLIENT_ID"),
             "client_secret": os.getenv("CLIENT_SECRET"),
             "code": code,
-            "redirect_uri": os.getenv("REDIRECT_URI_"),
+            "redirect_uri": os.getenv("REDIRECT_URI"),
         }
         headers = {"Content-Type": "application/x-www-form-urlencoded"}
         r = requests.post(token_url, data=data, headers=headers)
