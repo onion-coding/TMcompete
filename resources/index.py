@@ -4,12 +4,9 @@ class IndexResource:
     def on_get(self, req, resp):
         state = secrets.token_urlsafe(16)
         req.context.session["oauth_state"] = state
-        url = (
-            f"https://api.trackmania.com/oauth/authorize"
-            f"?response_type=code"
-            f"&client_id={os.getenv("CLIENT_ID")}"
-            f"&redirect_uri={os.getenv("REDIRECT_URI")}"
-            f"&state={state}"
-        )
+        base_url = "https://api.trackmania.com/oauth/authorize"
+        client_id = os.getenv("CLIENT_ID")
+        redirect_uri = os.getenv("REDIRECT_URI")
+        auth_url = "{base_url}?response_type=code&client_id={client_id}&redirect_uri={redirect_uri}&state={state}"
         resp.content_type = "text/html"
-        resp.text = f'<a href="{url}">Login with Ubisoft</a>'
+        resp.text = f'<a href="{auth_url}">Login with Ubisoft</a>'
