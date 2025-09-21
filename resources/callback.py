@@ -1,3 +1,7 @@
+from dotenv import load_dotenv
+
+load_dotenv()
+
 class CallbackResource:
     def on_get(self, req, resp):
         code = req.get_param("code")

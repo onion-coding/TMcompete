@@ -1,4 +1,6 @@
+from dotenv import load_dotenv
 
+load_dotenv()
 
 class IndexResource:
     def on_get(self, req, resp):
