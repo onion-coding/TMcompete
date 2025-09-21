@@ -1,8 +1,9 @@
-import falcon
+import falcon, os, secrets
 from falcon_sqla import Manager
 from db.session import engine
-import os
 from dotenv import load_dotenv
+from resources.callback import CallbackResource
+from resources.index import IndexResource
 
 load_dotenv()
 
