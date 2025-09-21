@@ -8,5 +8,6 @@ class IndexResource:
         client_id = os.getenv("CLIENT_ID")
         redirect_uri = os.getenv("REDIRECT_URI")
         auth_url = f"{base_url}?response_type=code&client_id={client_id}&redirect_uri={redirect_uri}&state={state}"
+        resp.set_cookie("ubisoft_security", state)
         resp.content_type = "text/html"
         resp.text = f'<a href="{auth_url}">Login with Ubisoft</a>'
