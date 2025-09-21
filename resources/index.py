@@ -1,6 +1,4 @@
-from dotenv import load_dotenv
-
-load_dotenv()
+import os
 
 class IndexResource:
     def on_get(self, req, resp):
@@ -9,8 +7,8 @@ class IndexResource:
         url = (
             f"https://api.trackmania.com/oauth/authorize"
             f"?response_type=code"
-            f"&client_id={CLIENT_ID}"
-            f"&redirect_uri={REDIRECT_URI}"
+            f"&client_id={os.getenv("CLIENT_ID")}"
+            f"&redirect_uri={os.getenv("REDIRECT_URI")}"
             f"&state={state}"
         )
         resp.content_type = "text/html"
