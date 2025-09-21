@@ -5,7 +5,7 @@ from db.session import engine
 import os
 from dotenv import load_dotenv
 import secrets
-
+# from resources/callback import CallbackResource
 load_dotenv()
 
 manager = Manager(engine)
