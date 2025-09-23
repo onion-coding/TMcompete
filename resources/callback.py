@@ -4,7 +4,7 @@ class CallbackResource:
     def on_get(self, req, resp):
         code = req.get_param("code")
         returned_state = req.get_param("state")
-        if returned_state != req.get_cookie_values("ubisoft_security")[0]
+        if returned_state != req.get_cookie_values("ubisoft_security")[0]:
             raise Exception("no")
         expected_state = req.context.session.get("oauth_state")
 
